@@ -1,0 +1,53 @@
+\documentclass[
+	hyperref={
+		pageanchor=false,
+		bookmarks=false,
+		pdfpagelabels=false},
+	% aspectratio=169,
+	]{beamer}
+\usepackage{pgfpages}									% for producing notes
+% \setbeameroption{show notes on second screen}
+% \usetheme[progressbar=frametitle]{metropolis}           % Use metropolis theme
+\useinnertheme{metropolis}
+\useoutertheme[progressbar=frametitle]{metropolis}
+\usecolortheme{metropolis}
+\definecolor{lightblue}{RGB}{0,190,255}					% Define colors of corporate design of University of Stuttgart
+\definecolor{midblue}{RGB}{0,81,158}
+\definecolor{anthrazit}{RGB}{62,68,76}
+\setbeamercolor{alerted text}{fg=midblue}				% Set colors
+%\setbeamercolor{normal text}{fg=anthrazit}
+\usepackage{caption}									% Use \captionof
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{calc}
+\usepackage{amsmath}									% Use of align which is assumer superior to eqnarray
+\usepackage{tabularx}									% Needed for using align in tabular-environment
+\usepackage{array}										% Center text in column with specified width
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+% \usepackage{colortbl}									% Specify \arrayrulecolor for use in timeline
+ \usepackage{booktabs}									% Use of \toprule
+ \usepackage{tabu}
+\title{Crashing simulated planes is cheap: Can simulation detect robotics bugs early?}
+\date{May 10, 2018}
+\author{Sangwon Hyeon, Caroline, Andreas Poppele}
+% \institute{KIXLAB, Korea Advanced Institue of Science and Technology}
+%\logo{\includegraphics{images/unistuttgart_logo_de.jpg}}
+
+\usepackage[T1]{fontenc} % utf8 <- produce real utf8 characters
+\usepackage[utf8]{inputenc} % utf8 <- accept utf8 input characters
+\usepackage[english]{babel}
+\usepackage{anyfontsize} % mute warnings?
+\usepackage{silence} % Error / Warning filter
+\usepackage{textcomp} % Fix font warning
+\usepackage[numbers]{natbib} % use natbib for \citeauthor{} and Co.
+
+\makeatletter % Enable footnotes without marker
+\def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
+\makeatother
+%---------------------------------
+% Silence Warning
+%---------------------------------
+\WarningFilter{biblatex}{Patching footnotes failed}
+\WarningFilter{beamerthememetropolis}{You need to compile with XeLaTeX or LuaLaTeX to use the Fira fonts}
+
+\NoHyper % remove warnings - but no links
