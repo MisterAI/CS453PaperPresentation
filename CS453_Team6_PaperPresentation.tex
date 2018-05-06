@@ -84,9 +84,12 @@
 			\item<+-> Input is subset of the possible CGS commands
 			\item<+-> Verify by precondition-postcondition
 			\item<+-> Timeout function required
+			\item<+-> Guided and unguided test generation
 		\end{itemize}
 
 		\note{
+		CGS: ground control system
+
 		No preprogrammed missions, RC input, unintended events
 
 		Precondition: circumstances
@@ -156,8 +159,33 @@
 % Section Conclusion \& Future work
 %---------------------------------
 \section{Conclusion \& Future work}
-	\begin{frame}{Conclusion \& Future work}
-		Conclusion
+	\begin{frame}{Conclusion}
+		Robotics systems are ubiquitous and safety-critical
+
+		Fields testing expensive but simulation inadequate?
+
+		\pause
+		Empirically shown that simulation can find majority of bugs, however requiring continuous input and specific configurations
+
+		\pause
+		High-level framework for automated testing proposed
+	\end{frame}
+
+	\begin{frame}{Future work}
+		\begin{itemize}
+			\item Test suite generation
+			\item Modelling unexpected events
+			\item Specification languages and inference
+		\end{itemize}
+		\note{
+			Expand HOUSTON for test-suite generation. Targeting subset of bug types promising
+
+			Expand input space by e. g. failing sensors, lost communication
+
+			More powerful specification language to deal with timing of events and model concurrency (consider burden to use)
+
+			Inference using outlier traces to generate high-quality specifications
+		}
 	\end{frame}
 
 \begin{frame}[standout]
