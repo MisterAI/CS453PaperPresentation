@@ -53,8 +53,78 @@
 % Section Automated Systems Testing
 %---------------------------------
 \section{Automated Systems Testing}
-	\begin{frame}{Automated Systems Testing}
-		AST
+	\begin{frame}{Automated Systems Testing for Robotics}
+		High-level framework to perform robotics systems testing
+
+		\begin{tikzpicture}[line width=1pt]
+			\node [align=left] (Event) at (0,0) {Event};
+			\node [draw,shape=rectangle,minimum width=3cm, minimum height=1.5cm] (Box) at (4,0)
+				{};
+			\node [anchor=north west] at (Box.north west) {Blackbox};
+			\node [align=left] (Var) at (8, 0) {Observable\\ variables};
+			\node [align=left] (Schema) at (0, -2) {Event schema};
+			\draw[->] (Event) -- (Box);
+			\draw[->] (Box) -- (Var);
+			\draw[-{Latex[open]}] (Event) -- (Schema);
+		\end{tikzpicture}
+
+		\note<1->{Event schema: params + possible behaviours}
+	
+		\pause
+		Test by Scenario: initial state and configuration + sequence of events
+
+	\end{frame}
+
+	\begin{frame}{Implementation}
+		
+		{\Large HOUSTON}
+
+		\begin{itemize}
+			\item<+-> Simplest possible implementation
+			\item<+-> Input is subset of the possible CGS commands
+			\item<+-> Verify by precondition-postcondition
+			\item<+-> Timeout function required
+		\end{itemize}
+
+		\note{
+		No preprogrammed missions, RC input, unintended events
+
+		Precondition: circumstances
+
+		Postcondition: consequences
+
+		Expressed by observable variables
+		}
+
+	\end{frame}
+
+	\begin{frame}{Preliminary results}
+		Error:
+		\begin{itemize}
+			\item[] Arming copter twice makes future arm commands fail
+		\end{itemize}
+
+		\pause
+		Test scenario:
+		\begin{itemize}
+			\item[] ARM $\rightarrow$ ARM $\rightarrow$ DISARM $\rightarrow$ ARM
+		\end{itemize}
+		\note{last postcondition would fail as copter would remain unarmed}
+	\end{frame}
+
+	\begin{frame}{Preliminary results}
+		Error:
+		\begin{itemize}
+			\item[] Parachute command results in unwanted motor test
+		\end{itemize}
+
+		\pause
+		Test scenario:
+		\begin{itemize}
+			\item[] Static configuration: enable parachute feature
+			\item[] DISARM $\rightarrow$ PARACHUTE
+		\end{itemize}
+		\note{last postcondition would fail as copter would be armed}
 	\end{frame}
 
 %---------------------------------
